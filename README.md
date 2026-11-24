@@ -26,11 +26,52 @@ To collect employee details, validate inputs, and calculate gross and net salary
    * Print a structured summary displaying `name`, `emp_id`, `basic`, `HRA`, `DA`, `Gross Salary`, `Tax`, and `Net Salary` formatted to two decimal places.
 9. **Stop** the program.
 
-## Program
+## Program  
+# Employee Payroll Calculation  
+
+name = input("Enter Employee Name: ").strip()  
+emp_id = input("Enter Employee ID: ").strip()  
+
+try:  
+    basic = float(input("Enter Basic Pay: "))  
+
+    if basic < 0:  
+        print("Error: Basic salary cannot be negative.")  
+    else:  
+        hra = 0.15 * basic  
+        da = 0.10 * basic  
+        gross = basic + hra + da  
+        tax = 0.08 * gross  
+        net = gross - tax  
+
+        print("\\n--- Employee Salary Report ---")  
+        print(f"Employee Name: {name}")  
+        print(f"Employee ID: {emp_id}")  
+        print(f"Basic Pay: ₹{basic:.2f}")  
+        print(f"HRA: ₹{hra:.2f}")  
+        print(f"DA: ₹{da:.2f}")  
+        print(f"Gross Salary: ₹{gross:.2f}")  
+        print(f"Tax Deducted: ₹{tax:.2f}")  
+        print(f"Net Salary: ₹{net:.2f}")  
+
+except ValueError:  
+    print("Error: Please enter a valid numeric value for basic salary.")  
 
 
 ## Output
+Enter Employee Name: Divya  
+Enter Employee ID: 12617  
+Enter Basic Pay: 30000  
 
+--- Employee Salary Report ---  
+Employee Name: Divya  
+Employee ID: 12617  
+Basic Pay: ₹30000.00  
+HRA: ₹4500.00  
+DA: ₹3000.00  
+Gross Salary: ₹37500.00  
+Tax Deducted: ₹3000.00  
+Net Salary: ₹34500.00  
 
 ## ✅ Result
 
